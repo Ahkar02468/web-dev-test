@@ -312,6 +312,34 @@ video {
     }
 }
 
+/* Information Section */
+.info-section {
+    padding: 80px 0;
+    background: var(--color-bg);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.info-card h3 {
+    font-family: var(--font-main);
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.info-card p {
+    color: var(--color-gray-400);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
 /* --- Collections (Sticky Layout) --- */
 .collection-section {
     padding: 6rem 0;
