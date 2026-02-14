@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PLAIMANAS - Frontend Test</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="logo">PLAIMANAS</div>
+
+        <nav class="desktop-nav">
+          <ul>
+            <li class="has-dropdown">
+              <a href="#">Editorial</a>
+              <div class="dropdown-menu">
+                <a href="#">Lookbook 2024</a>
+                <a href="#">Campaigns</a>
+                <a href="#">Journal</a>
+              </div>
+            </li>
+            <li><a href="#collection-01">Collection 01</a></li>
+            <li><a href="#collection-02">Collection 02</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </nav>
+
+        <button class="mobile-toggle" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="mobile-menu">
+        <nav>
+          <ul>
+            <li><a href="#">Editorial</a></li>
+            <li><a href="#collection-01">Collection 01</a></li>
+            <li><a href="#collection-02">Collection 02</a></li>
+            <li><a href="#faq">FAQs</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1>PLAIMANAS</h1>
+            <p class="subtitle">Collection 2024</p>
+          </div>
+          <!-- Hero Video / Image -->
+          <div class="hero-media">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              poster="assets/hero-poster.jpg"
+            >
+              <source src="assets/videos/hero-video.mp4" type="video/mp4" />
+              <!-- Fallback Image -->
+              <img src="assets/hero-poster.jpg" alt="Hero Banner" />
+            </video>
+            <!-- Remove this placeholder when adding real assets -->
+            <!-- <div class="placeholder-box video-placeholder">
+              Hero Video (MP4) / Image
+            </div> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Description Section -->
+      <section class="description">
+        <div class="container">
+          <p>
+            PLAIMANAS is a contemporary fashion brand defined by bold
+            silhouettes and monochromatic aesthetics. We explore the
+            intersection of utility and luxury.
+          </p>
+        </div>
+      </section>
+
+      <!-- Marquee Section -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track">
+          <span class="marquee-item"
+            >NEW ARRIVAL
+            <img
+              src="assets/pixel_arrow-left.svg"
+              class="marquee-icon"
+              alt="" />
+            BEST SELLING
+            <img src="assets/pixel_arrow-right.svg" class="marquee-icon" alt=""
+          /></span>
+          <span class="marquee-item"
+            >NEW ARRIVAL
+            <img
+              src="assets/pixel_arrow-left.svg"
+              class="marquee-icon"
+              alt="" />
+            BEST SELLING
+            <img src="assets/pixel_arrow-right.svg" class="marquee-icon" alt=""
+          /></span>
+          <span class="marquee-item"
+            >NEW ARRIVAL
+            <img
+              src="assets/pixel_arrow-left.svg"
+              class="marquee-icon"
+              alt="" />
+            BEST SELLING
+            <img src="assets/pixel_arrow-right.svg" class="marquee-icon" alt=""
+          /></span>
+          <span class="marquee-item"
+            >NEW ARRIVAL
+            <img
+              src="assets/pixel_arrow-left.svg"
+              class="marquee-icon"
+              alt="" />
+            BEST SELLING
+            <img src="assets/pixel_arrow-right.svg" class="marquee-icon" alt=""
+          /></span>
+          <span class="marquee-item"
+            >NEW ARRIVAL
+            <img
+              src="assets/pixel_arrow-left.svg"
+              class="marquee-icon"
+              alt="" />
+            BEST SELLING
+            <img src="assets/pixel_arrow-right.svg" class="marquee-icon" alt=""
+          /></span>
+          <span class="marquee-item"
+            >NEW ARRIVAL
+            <img
+              src="assets/pixel_arrow-left.svg"
+              class="marquee-icon"
+              alt="" />
+            BEST SELLING
+            <img src="assets/pixel_arrow-right.svg" class="marquee-icon" alt=""
+          /></span>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <section class="faq" id="faq">
+        <div class="container">
+          <h2>FREQUENTLY ASKED QUESTIONS</h2>
+
+          <!-- FAQ Tabs -->
+          <div class="faq-tabs">
+            <button class="tab-btn active" data-category="orders">
+              ORDERS
+            </button>
+            <button class="tab-btn" data-category="shipping">SHIPPING</button>
+            <button class="tab-btn" data-category="returns">
+              RETURNS & EXCHANGES
+            </button>
+            <button class="tab-btn" data-category="sizing">
+              SIZING & PRODUCTS
+            </button>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div class="accordion">
+            <!-- Q1 -->
+            <div class="accordion-item" data-category="orders">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span>WHAT IS YOUR RETURN POLICY?</span>
+                <span class="icon">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="content-inner">
+                  <p>
+                    Items can be returned within 14 days of receipt, provided
+                    they are unworn, unwashed, and in original condition with
+                    tags attached.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="accordion-item" data-category="shipping">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span>CAN I EXCHANGE FOR A DIFFERENT SIZE?</span>
+                <span class="icon">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="content-inner">
+                  <p>
+                    Yes, exchanges are available for different sizes within 14
+                    days of receipt. Please contact customer service for
+                    assistance.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="accordion-item" data-category="returns">
+              <button class="accordion-trigger" aria-expanded="false">
+                <span>ARE SALE ITEMS REFUNDABLE?</span>
+                <span class="icon">+</span>
+              </button>
+              <div class="accordion-content">
+                <div class="content-inner">
+                  <p>
+                    Sale items are final sale and not eligible for refunds.
+                    Exchanges may be available depending on availability.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="container">
+          <p>&copy; 2024 PLAIMANAS. All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
