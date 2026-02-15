@@ -20,24 +20,47 @@
     <!-- Navigation -->
     <header class="site-header">
       <div class="container header-inner">
-        <div class="logo">PLAIMANAS</div>
+        <!-- Left: Currency Selector -->
+        <div class="header-left">
+          <button class="currency-selector">
+            TH - THB <span class="dropdown-arrow">▼</span>
+          </button>
+        </div>
 
-        <nav class="desktop-nav">
+        <!-- Center: Navigation -->
+        <nav class="desktop-nav header-center">
           <ul>
-            <li class="has-dropdown">
-              <a href="#">Editorial</a>
-              <div class="dropdown-menu">
-                <a href="#">Lookbook 2024</a>
-                <a href="#">Campaigns</a>
-                <a href="#">Journal</a>
-              </div>
-            </li>
-            <li><a href="#collection-01">Collection 01</a></li>
-            <li><a href="#collection-02">Collection 02</a></li>
-            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#">WOMEN</a></li>
+            <li><a href="#collection-01">COLLECTIONS</a></li>
+            <li><a href="#">EDITORIAL</a></li>
+            <li><a href="#">NEWS</a></li>
+            <li><a href="#">STORIES</a></li>
           </ul>
         </nav>
 
+        <!-- Right: Actions -->
+        <div class="header-right">
+          <a href="#" class="sign-in-link">SIGN IN</a>
+          <a href="#" class="cart-btn" aria-label="Cart">
+            <!-- Simple Bag Icon SVG -->
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Mobile Toggle (Keep for responsive) -->
         <button class="mobile-toggle" aria-label="Toggle Menu">
           <span class="bar"></span>
           <span class="bar"></span>
@@ -48,10 +71,11 @@
       <div class="mobile-menu">
         <nav>
           <ul>
-            <li><a href="#">Editorial</a></li>
-            <li><a href="#collection-01">Collection 01</a></li>
-            <li><a href="#collection-02">Collection 02</a></li>
-            <li><a href="#faq">FAQs</a></li>
+            <li><a href="#">WOMEN</a></li>
+            <li><a href="#collection-01">COLLECTIONS</a></li>
+            <li><a href="#">EDITORIAL</a></li>
+            <li><a href="#">NEWS</a></li>
+            <li><a href="#">STORIES</a></li>
           </ul>
         </nav>
       </div>
@@ -60,11 +84,7 @@
     <main>
       <!-- Hero Section -->
       <section class="hero">
-        <div class="container">
-          <div class="hero-content">
-            <h1>PLAIMANAS</h1>
-            <p class="subtitle">Collection 2024</p>
-          </div>
+        <div class="hero-container">
           <!-- Hero Video / Image -->
           <div class="hero-media">
             <video
@@ -75,13 +95,13 @@
               poster="assets/hero-poster.jpg"
             >
               <source src="assets/videos/hero-video.mp4" type="video/mp4" />
-              <!-- Fallback Image -->
               <img src="assets/hero-poster.jpg" alt="Hero Banner" />
             </video>
-            <!-- Remove this placeholder when adding real assets -->
-            <!-- <div class="placeholder-box video-placeholder">
-              Hero Video (MP4) / Image
-            </div> -->
+            
+            <!-- Overlay Text (Centered on Image) -->
+            <div class="hero-overlay">
+              <h1>PLAIMANAS</h1>
+            </div>
           </div>
         </div>
       </section>

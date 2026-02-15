@@ -62,102 +62,98 @@ video {
 
 /* --- Header --- */
 .site-header {
-    padding: 1.5rem 0;
+    padding: 1.2rem 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 100;
-    background: rgba(245, 245, 245, 0);
-    /* Transparent initially */
-    transition: background 0.3s ease, padding 0.3s ease;
+    background: #FFFFFF; /* White background as per Photo 1 */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Sticky Header State */
 .site-header.sticky {
-    background: rgba(245, 245, 245, 0.95);
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(8px);
+    padding: 0.8rem 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
-.logo {
-    font-weight: 900;
-    font-size: 2rem;
-    /* Initial Large Size */
-    letter-spacing: -0.05em;
+/* Header Sections (Left, Center, Right) */
+.header-left, .header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    justify-content: flex-end;
+    gap: 1.5rem;
+}
+
+.header-center {
+    flex: 2;
+    justify-content: center;
+}
+
+/* Currency Selector */
+.currency-selector {
+    background: none;
+    border: none;
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
     text-transform: uppercase;
-    transition: font-size 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-.site-header.sticky .logo {
-    font-size: 1.5rem;
-    /* Shrink on scroll */
+.dropdown-arrow {
+    font-size: 0.6rem;
 }
 
 /* Navigation */
 .desktop-nav ul {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
     list-style: none;
     align-items: center;
+    justify-content: center;
 }
 
 .desktop-nav a {
     text-decoration: none;
     color: var(--color-text);
-    font-weight: 500;
+    font-weight: 500; /* Bold/Medium matches Photo 1 */
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 0.05em;
     position: relative;
 }
 
-/* Dropdown Menu */
-.has-dropdown {
-    position: relative;
-    padding: 1rem 0;
-    /* Increase hit area */
+/* Right Actions */
+.sign-in-link {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    min-width: 200px;
-    padding: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
+.cart-btn {
+    color: var(--color-text);
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
 }
 
-.has-dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-menu a {
-    text-transform: none;
-    font-size: 0.9rem;
-    color: #666;
-    transition: color 0.2s;
-}
-
-.dropdown-menu a:hover {
-    color: #000;
-}
 
 /* Mobile Toggle */
 .mobile-toggle {
@@ -215,38 +211,60 @@ video {
 
 /* --- Hero --- */
 .hero {
-    padding-top: 160px;
-    padding-bottom: 4rem;
-    text-align: center;
+    /* Remove padding-top since header is overlapping or fixed, 
+       but Photo 1 shows a full hero. 
+       We need to account for the header height if it's not transparent. 
+       Photo 1 header is WHITE. So hero starts AFTER header. */
+    margin-top: 60px; /* Approx header height */
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px); /* Full height minus header */
+    overflow: hidden;
 }
 
-.hero h1 {
-    font-size: clamp(3rem, 12vw, 9rem);
-    font-weight: 900;
-    line-height: 0.85;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: -0.04em;
-}
-
-.subtitle {
-    font-size: 1.1rem;
-    color: #555;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: 4rem;
+.hero-container {
+    width: 100%;
+    height: 100%;
 }
 
 .hero-media {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    height: 100%;
 }
 
-.hero-media video {
+.hero-media video, 
+.hero-media img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills the area like Photo 1 */
     display: block;
+    filter: grayscale(100%); /* Match Photo 1 B&W aesthetic */
+}
+
+/* Overlay Text */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center; /* Vertical Center */
+    justify-content: center; /* Horizontal Center */
+    z-index: 10;
+    pointer-events: none; /* Let clicks pass through to video/img if needed */
+}
+
+.hero-overlay h1 {
+    font-size: clamp(4rem, 15vw, 12rem); /* Massive text */
+    font-weight: 900;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9); /* White text */
+    mix-blend-mode: overlay; /* Blends with the image like Photo 1 */
+    letter-spacing: -0.02em;
+    text-align: center;
+    line-height: 0.8;
 }
 
 /* --- Description Block --- */
