@@ -1,0 +1,101 @@
+/* --- Collections Section --- */
+.collections {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 4rem var(--gutter);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    /* No vertical gap between rows */
+}
+
+/* Individual Item Container */
+.collection-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Collection 01 (Top) --- */
+.collection-image-wrapper.full-width {
+    width: 100%;
+    aspect-ratio: 16/9;
+    max-height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Collection 02 & 03 (Bottom Grid) --- */
+.collection-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    /* No horizontal gap between columns */
+    /* margin-top: 0.5rem; */
+    /* Tiny separation, if needed */
+}
+
+@media (min-width: 768px) {
+    .collection-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.collection-grid .collection-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Common Image Styles --- */
+.collection-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection-item:hover img,
+.collection-image-wrapper:hover img {
+    transform: scale(1.03);
+}
+
+.collection-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.collection-overlay h2 {
+    font-family: var(--font-main);
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.02em;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    line-height: 1.1;
+}
