@@ -34,6 +34,7 @@ video {
 }
 
 .container {
+    align-items: center;
     max-width: var(--container-width);
     margin: 0 auto;
     padding: 0 var(--gutter);
@@ -67,15 +68,16 @@ video {
     top: 0;
     width: 100%;
     z-index: 100;
-    background: #FFFFFF; /* White background as per Photo 1 */
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    background: #FFFFFF;
+    /* White background as per Photo 1 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Sticky Header State */
 .site-header.sticky {
     padding: 0.8rem 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .header-inner {
@@ -86,7 +88,8 @@ video {
 }
 
 /* Header Sections (Left, Center, Right) */
-.header-left, .header-right {
+.header-left,
+.header-right {
     flex: 1;
     display: flex;
     align-items: center;
@@ -132,7 +135,8 @@ video {
 .desktop-nav a {
     text-decoration: none;
     color: var(--color-text);
-    font-weight: 500; /* Bold/Medium matches Photo 1 */
+    font-weight: 500;
+    /* Bold/Medium matches Photo 1 */
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 0.05em;
@@ -215,10 +219,12 @@ video {
        but Photo 1 shows a full hero. 
        We need to account for the header height if it's not transparent. 
        Photo 1 header is WHITE. So hero starts AFTER header. */
-    margin-top: 60px; /* Approx header height */
+    margin-top: 60px;
+    /* Approx header height */
     position: relative;
     width: 100%;
-    height: calc(100vh - 60px); /* Full height minus header */
+    height: calc(100vh - 60px);
+    /* Full height minus header */
     overflow: hidden;
 }
 
@@ -233,13 +239,15 @@ video {
     height: 100%;
 }
 
-.hero-media video, 
+.hero-media video,
 .hero-media img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image fills the area like Photo 1 */
+    object-fit: cover;
+    /* Ensures image fills the area like Photo 1 */
     display: block;
-    filter: grayscale(100%); /* Match Photo 1 B&W aesthetic */
+    filter: grayscale(100%);
+    /* Match Photo 1 B&W aesthetic */
 }
 
 /* Overlay Text */
@@ -250,18 +258,24 @@ video {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center; /* Vertical Center */
-    justify-content: center; /* Horizontal Center */
+    align-items: center;
+    /* Vertical Center */
+    justify-content: center;
+    /* Horizontal Center */
     z-index: 10;
-    pointer-events: none; /* Let clicks pass through to video/img if needed */
+    pointer-events: none;
+    /* Let clicks pass through to video/img if needed */
 }
 
 .hero-overlay h1 {
-    font-size: clamp(4rem, 15vw, 12rem); /* Massive text */
+    font-size: clamp(4rem, 15vw, 12rem);
+    /* Massive text */
     font-weight: 900;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9); /* White text */
-    mix-blend-mode: overlay; /* Blends with the image like Photo 1 */
+    color: rgba(255, 255, 255, 0.9);
+    /* White text */
+    mix-blend-mode: overlay;
+    /* Blends with the image like Photo 1 */
     letter-spacing: -0.02em;
     text-align: center;
     line-height: 0.8;
@@ -271,6 +285,35 @@ video {
 .description {
     padding: 4rem 0 6rem;
     text-align: center;
+}
+
+.description-media {
+    position: relative;
+    margin: 0 auto 1rem;
+    display: grid;
+    place-items: center;
+}
+
+.description-media img {
+    grid-area: 1 / 1;
+    width: auto;
+}
+
+.description-media video {
+    grid-area: 1 / 1;
+    width: 100%;
+}
+
+.sticky-label {
+    grid-area: 1 / 1;
+    position: sticky;
+    top: 50vh;
+    transform: translateY(-50%);
+    color: var(--color-white);
+    font-size: clamp(2rem, 5vw, 5rem);
+    font-weight: 900;
+    z-index: 5;
+    pointer-events: none;
 }
 
 .description p {
