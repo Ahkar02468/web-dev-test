@@ -25,9 +25,15 @@
       <div class="container header-inner">
         <!-- Left: Currency Selector -->
         <div class="header-left">
-          <button class="currency-selector">
-            TH - THB <span class="dropdown-arrow">▼</span>
-          </button>
+          <div class="currency-wrapper">
+            <button class="currency-selector">
+              TH - THB <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="currency-dropdown">
+              <a href="#">US - USD</a>
+              <a href="#">EU - EUR</a>
+            </div>
+          </div>
         </div>
 
         <!-- Center: Navigation -->
@@ -35,7 +41,18 @@
           <ul>
             <li><a href="#">WOMEN</a></li>
             <li><a href="#collection-01">COLLECTIONS</a></li>
-            <li><a href="#">EDITORIAL</a></li>
+            <li class="nav-item-editorial">
+              <a href="#">EDITORIAL</a>
+              <div class="editorial-overlay">
+                <div class="editorial-content">
+                  <div class="editorial-title">EDITORIAL</div>
+                  <div class="editorial-links">
+                    <a href="#">A.S.C</a>
+                    <a href="#">BAZAAR</a>
+                  </div>
+                </div>
+              </div>
+            </li>
             <li><a href="#">NEWS</a></li>
             <li><a href="#">STORIES</a></li>
           </ul>

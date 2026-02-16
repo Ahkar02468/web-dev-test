@@ -123,6 +123,44 @@ video {
     font-size: 0.6rem;
 }
 
+/* Currency Dropdown */
+.currency-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.currency-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--color-white);
+    min-width: 120px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    z-index: 101;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.currency-wrapper:hover .currency-dropdown {
+    display: block;
+}
+
+.currency-dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.currency-dropdown a:hover {
+    background: var(--color-bg);
+}
+
 /* Navigation */
 .desktop-nav ul {
     display: flex;
@@ -141,6 +179,57 @@ video {
     font-size: 0.8rem;
     letter-spacing: 0.05em;
     position: relative;
+}
+
+/* Editorial Overlay */
+.editorial-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 2000;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    pointer-events: none;
+}
+
+.nav-item-editorial:hover .editorial-overlay {
+    display: flex;
+}
+
+.editorial-content {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 4rem 2rem;
+}
+
+.editorial-title {
+    color: #FFFFFF;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.editorial-links a {
+    display: block;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.editorial-links a:hover {
+    opacity: 0.7;
 }
 
 /* Right Actions */
@@ -625,7 +714,8 @@ video {
     padding: 6rem 0;
     background: #000;
     color: var(--color-white);
-    text-align: center; /* Center all text content */
+    text-align: center;
+    /* Center all text content */
 }
 
 .inquiry .container {
@@ -636,10 +726,12 @@ video {
 }
 
 .inquiry h2 {
-    font-size: clamp(2rem, 5vw, 3rem); /* Responsive large title */
+    font-size: clamp(2rem, 5vw, 3rem);
+    /* Responsive large title */
     text-transform: uppercase;
     letter-spacing: -0.02em;
-    margin-bottom: 2rem; /* More space below title */
+    margin-bottom: 2rem;
+    /* More space below title */
     font-weight: 900;
 }
 
@@ -648,14 +740,17 @@ video {
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
-    max-width: 600px; /* Limit form width */
-    align-self: stretch; /* Expand to container width */
+    max-width: 600px;
+    /* Limit form width */
+    align-self: stretch;
+    /* Expand to container width */
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align label and input to the left */
+    align-items: flex-start;
+    /* Align label and input to the left */
     gap: 0.5rem;
     width: 100%;
 }
@@ -664,8 +759,10 @@ video {
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #999; /* Light gray label */
-    align-self: flex-start; /* Align label to the left */
+    color: #999;
+    /* Light gray label */
+    align-self: flex-start;
+    /* Align label to the left */
 }
 
 .form-group input,
@@ -673,11 +770,13 @@ video {
     width: 100%;
     padding: 0.8rem 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05); /* Slight bg for inputs */
+    background: rgba(255, 255, 255, 0.05);
+    /* Slight bg for inputs */
     color: var(--color-white);
     font-family: var(--font-main);
     font-size: 1rem;
-    border-radius: 2px; /* Minimal border radius */
+    border-radius: 2px;
+    /* Minimal border radius */
     transition: border-color 0.3s ease, background 0.3s ease;
 }
 
@@ -700,8 +799,10 @@ video {
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
-    align-self: flex-start; /* Align button to the left */
-    margin-top: 1rem; /* Space above the button */
+    align-self: flex-start;
+    /* Align button to the left */
+    margin-top: 1rem;
+    /* Space above the button */
 }
 
 .submit-btn:hover {
@@ -711,10 +812,13 @@ video {
 
 .social-links {
     display: flex;
-    justify-content: center; /* Center the social links */
+    justify-content: center;
+    /* Center the social links */
     gap: 1.5rem;
-    margin-top: 2rem; /* More space above social icons */
-    align-self: stretch; /* Stretch to container width */
+    margin-top: 2rem;
+    /* More space above social icons */
+    align-self: stretch;
+    /* Stretch to container width */
 }
 
 .social-link {
@@ -727,7 +831,8 @@ video {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: invert(1); /* Make icons white if they are black */
+    filter: invert(1);
+    /* Make icons white if they are black */
     transition: opacity 0.3s ease;
 }
 
