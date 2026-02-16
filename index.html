@@ -16,6 +16,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="collections.css" />
+    <link rel="stylesheet" href="inquiry.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -369,6 +370,67 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- inquiry section  -->
+      <section>
+        <div class="inquiry-container">
+          <div class="left-section">
+            <h1>MAKE AN<br />INQUIRY</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+              ornare, nisl non rhoncus commodo.
+            </p>
+          </div>
+
+          <div class="form-section">
+            <form>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="onsite" name="location" checked />
+                  <label for="onsite">Onsite</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="hybrid" name="location" />
+                  <label for="hybrid">Hybrid</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="text" placeholder="Full name*" required />
+                </div>
+                <div class="form-group">
+                  <input type="email" placeholder="Email*" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <input type="tel" placeholder="Phone Number*" required />
+                </div>
+                <div class="form-group select-wrapper">
+                  <select required>
+                    <option value="" disabled selected>Select Subject*</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Support</option>
+                    <option value="sales">Sales</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="checkbox-group">
+                <div class="checkbox-option">
+                  <input type="checkbox" id="terms" />
+                  <label for="terms">I agree to all terms & conditions</label>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn">SEND</button>
+            </form>
           </div>
         </div>
       </section>

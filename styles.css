@@ -619,3 +619,118 @@ video {
         position: static;
     }
 }
+
+/* --- Inquiry Section --- */
+.inquiry {
+    padding: 6rem 0;
+    background: #000;
+    color: var(--color-white);
+    text-align: center; /* Center all text content */
+}
+
+.inquiry .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.inquiry h2 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive large title */
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem; /* More space below title */
+    font-weight: 900;
+}
+
+.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px; /* Limit form width */
+    align-self: stretch; /* Expand to container width */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align label and input to the left */
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #999; /* Light gray label */
+    align-self: flex-start; /* Align label to the left */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05); /* Slight bg for inputs */
+    color: var(--color-white);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    border-radius: 2px; /* Minimal border radius */
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.submit-btn {
+    padding: 1rem 2rem;
+    background: var(--color-white);
+    color: #000;
+    border: none;
+    font-family: var(--font-main);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    align-self: flex-start; /* Align button to the left */
+    margin-top: 1rem; /* Space above the button */
+}
+
+.submit-btn:hover {
+    background: #333;
+    color: var(--color-white);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center; /* Center the social links */
+    gap: 1.5rem;
+    margin-top: 2rem; /* More space above social icons */
+    align-self: stretch; /* Stretch to container width */
+}
+
+.social-link {
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
+.social-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: invert(1); /* Make icons white if they are black */
+    transition: opacity 0.3s ease;
+}
+
+.social-link img:hover {
+    opacity: 0.7;
+}
