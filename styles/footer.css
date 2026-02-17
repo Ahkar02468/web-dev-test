@@ -120,8 +120,25 @@
     }
 
     .footer-content {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
         gap: 30px;
+    }
+
+    /* Newsletter Form - Full Width on Mobile */
+    .newsletter-form {
+        grid-column: 1 / -1; /* Span full width */
+        width: 100%;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .subscribe-btn {
+        width: 100%;
+        padding: 14px 30px;
+        font-size: 14px;
     }
 }
 
@@ -135,5 +152,18 @@
         flex-direction: column;
         gap: 15px;
         text-align: center;
+    }
+
+    /* Newsletter Form - Full Width on Small Mobile */
+    .newsletter-form {
+        width: 100%;
+    }
+
+    .newsletter-form input[type="email"] {
+        width: 100%;
+    }
+
+    .subscribe-btn {
+        width: 100%;
     }
 }

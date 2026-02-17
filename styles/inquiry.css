@@ -7,7 +7,7 @@
 
 .inquiry-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
     max-width: 1440px;
     margin: 0 auto;
@@ -71,11 +71,11 @@
     flex-shrink: 0;
 }
 
-.radio-label input:checked + .radio-custom {
+.radio-label input:checked+.radio-custom {
     background: #000;
 }
 
-.radio-label input:checked + .radio-custom::after {
+.radio-label input:checked+.radio-custom::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -183,12 +183,12 @@
     position: relative;
 }
 
-.form-checkbox input:checked + .checkbox-custom {
+.form-checkbox input:checked+.checkbox-custom {
     background: #000000;
     border-color: #000000;
 }
 
-.form-checkbox input:checked + .checkbox-custom::after {
+.form-checkbox input:checked+.checkbox-custom::after {
     content: '✓';
     position: absolute;
     top: 50%;
@@ -281,7 +281,7 @@
         border: 1px solid #000;
     }
 
-    .radio-label input:checked + .radio-custom::after {
+    .radio-label input:checked+.radio-custom::after {
         width: 8px;
         height: 8px;
         background: #FFFFFF;
@@ -350,7 +350,7 @@
         border: 1px solid #000;
     }
 
-    .form-checkbox input:checked + .checkbox-custom::after {
+    .form-checkbox input:checked+.checkbox-custom::after {
         content: '✓';
         color: #FFFFFF;
         font-size: 12px;
