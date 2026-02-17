@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Y Position: Anchor top of text to be right under the header
       // Adjust this '80' if the text sits too low/high relative to your specific header
-      const headerHeight = 80;
+      const headerHeight = 140;
       const startY = headerHeight + startSize * 0.35;
       const endY = headerHeight + endSize * 0.35;
 
