@@ -399,59 +399,77 @@
         </div>
       </section>
 
-      <!-- inquiry section  -->
-      <section>
+      <!-- Inquiry Section -->
+      <section class="inquiry" id="inquiry">
         <div class="inquiry-container">
-          <div class="left-section">
-            <h1>MAKE AN<br />INQUIRY</h1>
+          <!-- Left Side: Title & Info -->
+          <div class="inquiry-info">
+            <h2>MAKE AN<br>INQUIRY</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
               ornare, nisl non rhoncus commodo.
             </p>
           </div>
 
-          <div class="form-section">
-            <form>
-              <div class="radio-group">
-                <div class="radio-option">
-                  <input type="radio" id="onsite" name="location" checked />
-                  <label for="onsite">Onsite</label>
+          <!-- Right Side: Form -->
+          <div class="inquiry-form-wrapper">
+            <form class="inquiry-form">
+              <!-- Radio Buttons -->
+              <div class="form-radios">
+                <label class="radio-label">
+                  <input type="radio" name="work_type" value="onsite" checked />
+                  <span class="radio-custom"></span>
+                  Onsite
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="work_type" value="hybrid" />
+                  <span class="radio-custom"></span>
+                  Hybrid
+                </label>
+              </div>
+
+              <!-- Form Grid (2x2 on desktop, stacked on mobile) -->
+              <div class="form-grid">
+                <!-- Full Name -->
+                <div class="form-group">
+                  <label for="name" class="input-label">Full name*</label>
+                  <input type="text" id="name" name="name" placeholder="Full name*" required />
                 </div>
-                <div class="radio-option">
-                  <input type="radio" id="hybrid" name="location" />
-                  <label for="hybrid">Hybrid</label>
+                
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email" class="input-label">Email*</label>
+                  <input type="email" id="email" name="email" value="Plaimanas@gmail.com" required />
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                  <label for="phone" class="input-label">Phone Number*</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Phone Number*" required />
+                </div>
+
+                <!-- Subject Dropdown -->
+                <div class="form-group">
+                  <label for="subject" class="input-label">Select Subject*</label>
+                  <div class="select-wrapper">
+                    <select id="subject" name="subject" required>
+                      <option value="" disabled selected>Select Subject*</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="support">Support</option>
+                      <option value="sales">Sales</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
                 </div>
               </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <input type="text" placeholder="Full name*" required />
-                </div>
-                <div class="form-group">
-                  <input type="email" placeholder="Email*" required />
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <input type="tel" placeholder="Phone Number*" required />
-                </div>
-                <div class="form-group select-wrapper">
-                  <select required>
-                    <option value="" disabled selected>Select Subject*</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="support">Support</option>
-                    <option value="sales">Sales</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="checkbox-group">
-                <div class="checkbox-option">
-                  <input type="checkbox" id="terms" />
-                  <label for="terms">I agree to all terms & conditions</label>
-                </div>
+              <!-- Checkbox -->
+              <div class="form-checkbox">
+                <label>
+                  <input type="checkbox" name="terms" required />
+                  <span class="checkbox-custom"></span>
+                  I agree to all terms & conditions
+                </label>
               </div>
 
               <button type="submit" class="submit-btn">SEND</button>
