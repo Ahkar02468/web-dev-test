@@ -812,4 +812,18 @@ video {
     .sticky-sidebar {
         position: static;
     }
+
+    /* Center Hamburger Menu on Mobile */
+    .mobile-toggle {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 101; /* Ensure above header content */
+    }
+    
+    /* Ensure header relative positioning for absolute child */
+    .header-inner {
+        position: relative;
+    }
 }

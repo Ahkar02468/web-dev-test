@@ -84,23 +84,42 @@
       <div class="mobile-menu">
         <div class="mobile-menu-header">
           <!-- Left: Currency -->
-          <div class="mobile-currency">
-            TH - THB <span class="arrow">▼</span>
+          <div class="currency-wrapper">
+            <button class="currency-selector">
+              TH - THB <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="currency-dropdown">
+              <a href="#">US - USD</a>
+              <a href="#">EU - EUR</a>
+            </div>
           </div>
-          
+
           <!-- Center: Close Button -->
           <button class="mobile-close" aria-label="Close Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
-          
+
           <!-- Right: Sign In & Cart -->
           <div class="mobile-actions">
             <a href="#" class="mobile-signin">SIGN IN</a>
             <a href="#" class="mobile-cart">
-              <img src="assets/shopping-cart.svg" alt="Cart" style="width: 20px; height: 20px;">
+              <img
+                src="assets/shopping-cart.svg"
+                alt="Cart"
+                style="width: 20px; height: 20px"
+              />
             </a>
           </div>
         </div>
@@ -110,7 +129,9 @@
             <li><a href="#">WOMEN</a></li>
             <li><a href="#collection-01">COLLECTIONS</a></li>
             <li class="mobile-editorial-item">
-              <button class="editorial-toggle">EDITORIAL <span class="arrow">▼</span></button>
+              <button class="editorial-toggle">
+                EDITORIAL <span class="arrow">▼</span>
+              </button>
               <ul class="mobile-submenu">
                 <li><a href="#">A.S.C</a></li>
                 <li><a href="#">BAZAAR</a></li>
@@ -128,13 +149,14 @@
 
         <div class="mobile-menu-footer">
           <div class="big-logo">PLAIMANAS</div>
-          <div class="domain-text"><span class="lock-icon">🔒</span> example.com</div>
+          <div class="domain-text">
+            <span class="lock-icon"></span> example.com
+          </div>
         </div>
       </div>
     </header>
 
     <main>
-      <!-- Hero Section -->
       <!-- Hero Section -->
       <section class="hero-section">
         <!-- Background Video (darkened) -->
@@ -443,7 +465,7 @@
         <div class="inquiry-container">
           <!-- Left Side: Title & Info -->
           <div class="inquiry-info">
-            <h2>MAKE AN<br>INQUIRY</h2>
+            <h2>MAKE AN<br />INQUIRY</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
               ornare, nisl non rhoncus commodo.
@@ -472,27 +494,49 @@
                 <!-- Full Name -->
                 <div class="form-group">
                   <label for="name" class="input-label">Full name*</label>
-                  <input type="text" id="name" name="name" placeholder="Full name*" required />
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Full name*"
+                    required
+                  />
                 </div>
-                
+
                 <!-- Email -->
                 <div class="form-group">
                   <label for="email" class="input-label">Email*</label>
-                  <input type="email" id="email" name="email" value="Plaimanas@gmail.com" required />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="Plaimanas@gmail.com"
+                    required
+                  />
                 </div>
 
                 <!-- Phone -->
                 <div class="form-group">
                   <label for="phone" class="input-label">Phone Number*</label>
-                  <input type="tel" id="phone" name="phone" placeholder="Phone Number*" required />
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Phone Number*"
+                    required
+                  />
                 </div>
 
                 <!-- Subject Dropdown -->
                 <div class="form-group">
-                  <label for="subject" class="input-label">Select Subject*</label>
+                  <label for="subject" class="input-label"
+                    >Select Subject*</label
+                  >
                   <div class="select-wrapper">
                     <select id="subject" name="subject" required>
-                      <option value="" disabled selected>Select Subject*</option>
+                      <option value="" disabled selected>
+                        Select Subject*
+                      </option>
                       <option value="general">General Inquiry</option>
                       <option value="support">Support</option>
                       <option value="sales">Sales</option>
