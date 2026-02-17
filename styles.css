@@ -339,37 +339,6 @@ video {
     /* Match Photo 1 B&W aesthetic */
 }
 
-/* Overlay Text */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    /* Vertical Center */
-    justify-content: center;
-    /* Horizontal Center */
-    z-index: 10;
-    pointer-events: none;
-    /* Let clicks pass through to video/img if needed */
-}
-
-.hero-overlay h1 {
-    font-size: clamp(4rem, 15vw, 12rem);
-    /* Massive text */
-    font-weight: 900;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9);
-    /* White text */
-    mix-blend-mode: overlay;
-    /* Blends with the image like Photo 1 */
-    letter-spacing: -0.02em;
-    text-align: center;
-    line-height: 0.8;
-}
-
 /* --- Description Block --- */
 .description {
     padding: 4rem 0 6rem;
