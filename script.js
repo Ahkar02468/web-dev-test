@@ -12,29 +12,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Mobile Menu Toggle ---
   const mobileBtn = document.querySelector(".mobile-toggle");
+  const mobileCloseBtn = document.querySelector(".mobile-close");
   const mobileMenu = document.querySelector(".mobile-menu");
-  const menuLinks = document.querySelectorAll(".mobile-menu a");
+  const menuLinks = document.querySelectorAll(".mobile-menu a:not(.mobile-signin):not(.mobile-cart)"); // Avoid closing on actions? Actually maybe close on nav links.
+  
+  function openMenu() {
+    mobileMenu.classList.add("active");
+    document.body.style.overflow = "hidden";
+    mobileBtn.setAttribute("aria-label", "Close Menu");
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.remove("active");
+    document.body.style.overflow = "";
+    mobileBtn.setAttribute("aria-label", "Open Menu");
+  }
 
   if (mobileBtn && mobileMenu) {
     mobileBtn.addEventListener("click", () => {
       const isOpen = mobileMenu.classList.contains("active");
-
-      if (isOpen) {
-        mobileMenu.classList.remove("active");
-        document.body.style.overflow = "";
-        mobileBtn.setAttribute("aria-label", "Open Menu");
-      } else {
-        mobileMenu.classList.add("active");
-        document.body.style.overflow = "hidden";
-        mobileBtn.setAttribute("aria-label", "Close Menu");
-      }
+      if (isOpen) closeMenu();
+      else openMenu();
     });
+    
+    // Close button inside the menu
+    if (mobileCloseBtn) {
+        mobileCloseBtn.addEventListener("click", closeMenu);
+    }
 
+    // Close on link click (nav items)
     menuLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        mobileMenu.classList.remove("active");
-        document.body.style.overflow = "";
+        closeMenu();
       });
+    });
+  }
+
+  // --- Mobile Editorial Submenu ---
+  const editorialToggle = document.querySelector(".editorial-toggle");
+  const mobileSubmenu = document.querySelector(".mobile-submenu");
+  
+  if (editorialToggle && mobileSubmenu) {
+    editorialToggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        const expanded = editorialToggle.getAttribute("aria-expanded") === "true";
+        editorialToggle.setAttribute("aria-expanded", !expanded);
+        mobileSubmenu.classList.toggle("open");
+        editorialToggle.classList.toggle("active");
     });
   }
 

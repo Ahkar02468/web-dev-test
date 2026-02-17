@@ -1,10 +1,10 @@
 .footer {
     background-color: #f8f8f8;
-    padding: 60px 80px 40px;
+    padding: 20px 40px 20px;
 }
 
 .footer-top {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .logo {
@@ -124,10 +124,9 @@
         gap: 30px;
     }
 
-    /* Newsletter Form - Full Width on Mobile */
-    .newsletter-form {
-        grid-column: 1 / -1; /* Span full width */
-        width: 100%;
+    /* Newsletter column spans full width */
+    .footer-column:last-child {
+        grid-column: 1 / -1;
     }
 
     .newsletter-form input[type="email"] {
@@ -148,22 +147,14 @@
         gap: 30px;
     }
 
+    /* Newsletter column full width on small screens */
+    .footer-column:last-child {
+        grid-column: 1 / -1;
+    }
+
     .footer-bottom {
         flex-direction: column;
         gap: 15px;
         text-align: center;
-    }
-
-    /* Newsletter Form - Full Width on Small Mobile */
-    .newsletter-form {
-        width: 100%;
-    }
-
-    .newsletter-form input[type="email"] {
-        width: 100%;
-    }
-
-    .subscribe-btn {
-        width: 100%;
     }
 }

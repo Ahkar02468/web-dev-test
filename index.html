@@ -82,15 +82,54 @@
 
       <!-- Mobile Menu Overlay -->
       <div class="mobile-menu">
-        <nav>
+        <div class="mobile-menu-header">
+          <!-- Left: Currency -->
+          <div class="mobile-currency">
+            TH - THB <span class="arrow">▼</span>
+          </div>
+          
+          <!-- Center: Close Button -->
+          <button class="mobile-close" aria-label="Close Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          
+          <!-- Right: Sign In & Cart -->
+          <div class="mobile-actions">
+            <a href="#" class="mobile-signin">SIGN IN</a>
+            <a href="#" class="mobile-cart">
+              <img src="assets/shopping-cart.svg" alt="Cart" style="width: 20px; height: 20px;">
+            </a>
+          </div>
+        </div>
+
+        <nav class="mobile-nav-content">
           <ul>
             <li><a href="#">WOMEN</a></li>
             <li><a href="#collection-01">COLLECTIONS</a></li>
-            <li><a href="#">EDITORIAL</a></li>
+            <li class="mobile-editorial-item">
+              <button class="editorial-toggle">EDITORIAL <span class="arrow">▼</span></button>
+              <ul class="mobile-submenu">
+                <li><a href="#">A.S.C</a></li>
+                <li><a href="#">BAZAAR</a></li>
+                <li><a href="#">ELLE</a></li>
+                <li><a href="#">GQ</a></li>
+                <li><a href="#">L'OFFICIAL THAILAND</a></li>
+                <li><a href="#">NUMERO</a></li>
+                <li><a href="#">VOGUE</a></li>
+              </ul>
+            </li>
             <li><a href="#">NEWS</a></li>
             <li><a href="#">STORIES</a></li>
           </ul>
         </nav>
+
+        <div class="mobile-menu-footer">
+          <div class="big-logo">PLAIMANAS</div>
+          <div class="domain-text"><span class="lock-icon">🔒</span> example.com</div>
+        </div>
       </div>
     </header>
 
