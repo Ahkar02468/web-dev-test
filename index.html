@@ -14,10 +14,11 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="collections.css" />
-    <link rel="stylesheet" href="inquiry.css" />
-    <link rel="stylesheet" href="footer.css" />
+    <link rel="stylesheet" href="styles/main-styles.css" />
+    <link rel="stylesheet" href="styles/collections.css" />
+    <link rel="stylesheet" href="styles/inquiry.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <link rel="stylesheet" href="styles/cut-out.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -49,6 +50,8 @@
                   <div class="editorial-links">
                     <a href="#">A.S.C</a>
                     <a href="#">BAZAAR</a>
+                    <a href="#">ELLE</a>
+                    <a href="#">GQ</a>
                   </div>
                 </div>
               </div>
@@ -93,20 +96,41 @@
 
     <main>
       <!-- Hero Section -->
-      <section class="hero">
-        <div class="hero-container">
-          <!-- Hero Video / Image -->
-          <div class="hero-media">
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              poster="assets/hero-poster.jpg"
-            >
-              <source src="assets/videos/hero-video.mp4" type="video/mp4" />
-              <img src="assets/hero-poster.jpg" alt="Hero Banner" />
-            </video>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <!-- Background Video (darkened) -->
+        <div class="video-container">
+          <video class="background-video" autoplay muted loop playsinline>
+            <source src="assets/videos/hero-video.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        <!-- Text Cutout with Video showing through -->
+        <div class="text-cutout-container">
+          <div class="hero-text-clippath" id="heroTextWrapper">
+            <svg width="0" height="0" style="position: absolute">
+              <defs>
+                <clipPath id="textClip">
+                  <text
+                    x="50%"
+                    y="20%"
+                    text-anchor="middle"
+                    dominant-baseline="middle"
+                    font-size="180"
+                    font-weight="900"
+                    letter-spacing="20"
+                  >
+                    PLAIMANAS
+                  </text>
+                </clipPath>
+              </defs>
+            </svg>
+
+            <div class="video-text-layer" style="clip-path: url(#textClip)">
+              <video autoplay muted loop playsinline>
+                <source src="assets/videos/hero-video.mp4" type="video/mp4" />
+              </video>
+            </div>
           </div>
         </div>
       </section>
