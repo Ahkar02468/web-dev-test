@@ -27,6 +27,12 @@
     pointer-events: none;
 }
 
+/* Improve SVG Text Rendering to look like Vector */
+#textClip text {
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+}
+
 /* Hero Text with Video Background */
 .hero-text-wrapper {
     position: absolute;
