@@ -164,17 +164,35 @@ document.addEventListener("DOMContentLoaded", () => {
       if (progress < 0) progress = 0;
 
       // Animation Parameters
-      // Make text huge at start to fill screen (responsive)
-      const startSize = windowWidth > 768 ? 300 : 150;
-      const endSize = 60; // Final font size (Logo size)
-      const startSpacing = 16;
+      // RESPONSIVE SIZE CALCULATION
+      // Desktop: Start big (300px)
+      // Mobile: Calculate based on screen width to ensure it fits or is appropriately large
+      // "PLAIMANAS" is approx 9 chars.
+      
+      let startSize;
+      let startSpacing;
+      
+      if (windowWidth > 768) {
+          startSize = 300; 
+          startSpacing = 20;
+      } else {
+          // Mobile: Width-based calculation
+          // Target width: 90% of screen
+          // Approx width of text = fontSize * 0.7 * 9chars
+          // fontSize = (windowWidth * 0.9) / (0.7 * 9)
+          // Simplified: windowWidth / 7
+          startSize = windowWidth / 6; // e.g., 375px -> ~62px
+          startSpacing = 2; // Tighter spacing on mobile
+      }
+
+      const endSize = windowWidth > 768 ? 60 : 40; // Smaller end size on mobile
       const endSpacing = 2;
 
-      // Y Position: Anchor top of text to be right under the header
-      // Adjust this '80' if the text sits too low/high relative to your specific header
-      const headerHeight = 140;
-      const startY = headerHeight + startSize * 0.35;
-      const endY = headerHeight + endSize * 0.35;
+      // Y Position: Start close under header with small gap, then shrink into header
+      const headerHeight = windowWidth > 768 ? 80 : 60; // Header height
+      const gapBelowHeader = windowWidth > 768 ? 60 : 40; // Small space below header
+      const startY = headerHeight + gapBelowHeader + (startSize * 0.4); // Start just below header
+      const endY = headerHeight + (endSize * 0.4); // End positioned in header
 
       // Interpolate values
       const currentSize = startSize - (startSize - endSize) * progress;
