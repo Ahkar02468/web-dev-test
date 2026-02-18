@@ -14,8 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileBtn = document.querySelector(".mobile-toggle");
   const mobileCloseBtn = document.querySelector(".mobile-close");
   const mobileMenu = document.querySelector(".mobile-menu");
-  const menuLinks = document.querySelectorAll(".mobile-menu a:not(.mobile-signin):not(.mobile-cart)"); // Avoid closing on actions? Actually maybe close on nav links.
-  
+  const menuLinks = document.querySelectorAll(
+    ".mobile-menu a:not(.mobile-signin):not(.mobile-cart)",
+  ); // Avoid closing on actions? Actually maybe close on nav links.
+
   function openMenu() {
     mobileMenu.classList.add("active");
     document.body.style.overflow = "hidden";
@@ -34,10 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (isOpen) closeMenu();
       else openMenu();
     });
-    
+
     // Close button inside the menu
     if (mobileCloseBtn) {
-        mobileCloseBtn.addEventListener("click", closeMenu);
+      mobileCloseBtn.addEventListener("click", closeMenu);
     }
 
     // Close on link click (nav items)
@@ -51,14 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- Mobile Editorial Submenu ---
   const editorialToggle = document.querySelector(".editorial-toggle");
   const mobileSubmenu = document.querySelector(".mobile-submenu");
-  
+
   if (editorialToggle && mobileSubmenu) {
     editorialToggle.addEventListener("click", (e) => {
-        e.preventDefault();
-        const expanded = editorialToggle.getAttribute("aria-expanded") === "true";
-        editorialToggle.setAttribute("aria-expanded", !expanded);
-        mobileSubmenu.classList.toggle("open");
-        editorialToggle.classList.toggle("active");
+      e.preventDefault();
+      const expanded = editorialToggle.getAttribute("aria-expanded") === "true";
+      editorialToggle.setAttribute("aria-expanded", !expanded);
+      mobileSubmenu.classList.toggle("open");
+      editorialToggle.classList.toggle("active");
     });
   }
 
@@ -146,62 +148,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroTextWrapper = document.getElementById("heroTextWrapper");
   const textClip = document.getElementById("textClip");
 
-  // Only run if elements exist (in case we're on a page without the hero)
   if (heroTextWrapper && textClip) {
     const textElement = textClip.querySelector("text");
-    const windowWidth = window.innerWidth;
 
-    // ONLY run animation on Desktop (> 768px)
-    if (windowWidth > 768) {
-      function updateAnimation() {
+    function handleHeroText() {
+      const windowWidth = window.innerWidth;
+
+      if (windowWidth > 768) {
+        // Desktop: Animate on scroll
         const scrolled = window.scrollY;
         const windowHeight = window.innerHeight;
-        const windowWidth = window.innerWidth;
 
-        // Define the scroll range for the animation (e.g., 80% of viewport)
         const animationRange = windowHeight * 0.8;
-
-        // Calculate progress (0 to 1)
         let progress = scrolled / animationRange;
         if (progress > 1) progress = 1;
         if (progress < 0) progress = 0;
 
-        // Animation Parameters - Desktop only
         const startSize = 300;
         const startSpacing = 20;
         const endSize = 60;
         const endSpacing = 2;
 
-        // Y Position: Start close under header with small gap, then shrink into header
         const headerHeight = 80;
         const gapBelowHeader = 60;
-        const startY = headerHeight + gapBelowHeader + (startSize * 0.4);
-        const endY = headerHeight + (endSize * 0.4);
+        const startY = headerHeight + gapBelowHeader + startSize * 0.4;
+        const endY = headerHeight + endSize * 0.4;
 
-        // Interpolate values
         const currentSize = startSize - (startSize - endSize) * progress;
-        const currentSpacing = startSpacing - (startSpacing - endSpacing) * progress;
+        const currentSpacing =
+          startSpacing - (startSpacing - endSpacing) * progress;
         const currentY = startY - (startY - endY) * progress;
 
-        // Apply to SVG Text directly
         textElement.setAttribute("x", windowWidth / 2);
         textElement.setAttribute("y", currentY);
         textElement.setAttribute("font-size", currentSize);
         textElement.setAttribute("letter-spacing", currentSpacing);
+      } else {
+        // Mobile: Set static, responsive size (no animation)
+        const mobileFontSize = windowWidth / 6;
+        textElement.setAttribute("x", windowWidth / 2);
+        textElement.setAttribute("y", 150);
+        textElement.setAttribute("font-size", mobileFontSize);
+        textElement.setAttribute("letter-spacing", 2);
       }
-
-      window.addEventListener("scroll", updateAnimation);
-      window.addEventListener("resize", updateAnimation);
-
-      // Initial call
-      updateAnimation();
-    } else {
-      // Mobile: Set static size (no animation)
-      const mobileFontSize = windowWidth / 6;
-      textElement.setAttribute("x", windowWidth / 2);
-      textElement.setAttribute("y", 150);
-      textElement.setAttribute("font-size", mobileFontSize);
-      textElement.setAttribute("letter-spacing", 2);
     }
+
+    window.addEventListener("scroll", handleHeroText);
+    window.addEventListener("resize", handleHeroText);
+
+    // Initial call
+    handleHeroText();
   }
 });
