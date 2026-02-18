@@ -1,82 +1,69 @@
-/* --- Collections Section --- */
 .collections {
     width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 4rem var(--gutter);
+    padding: 2rem var(--gutter);
     display: flex;
     flex-direction: column;
-    gap: 0;
-    /* No vertical gap between rows */
+    gap: 2rem;
 }
 
-/* Individual Item Container */
 .collection-item {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    line-height: 0;
 }
 
-/* --- Collection 01 (Top) --- */
-.collection-image-wrapper.full-width {
-    width: 100%;
-    aspect-ratio: 16/9;
-    max-height: 600px;
+.collection-image-wrapper {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    display: block;
+    line-height: 0;
 }
 
-/* --- Collection 02 & 03 (Bottom Grid) --- */
+/* UPDATED: aspect ratio to match screenshot wide banner */
+.collection-item:first-child .collection-image-wrapper {
+    aspect-ratio: 16/7;
+}
+
+/* UPDATED: desktop-first 2 columns, gap between col 02 and 03 */
 .collection-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    /* No horizontal gap between columns */
-    /* margin-top: 0.5rem; */
-    /* Tiny separation, if needed */
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 }
 
-@media (min-width: 768px) {
-    .collection-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+/* UPDATED: aspect ratio to match screenshot square-ish panels */
+.collection-grid .collection-item .collection-image-wrapper {
+    aspect-ratio: 4/3;
 }
 
-.collection-grid .collection-image-wrapper {
-    width: 100%;
-    aspect-ratio: 1/1;
-    position: relative;
+/* UPDATED: absolute fill so no extra height from placeholder */
+.collection-placeholder {
+    position: absolute;
+    inset: 0;
+    background-color: #1a1a1a;
     overflow: hidden;
 }
 
-/* --- Common Image Styles --- */
-.collection-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+/* UPDATED: force cover fill, override inline styles */
+.collection-placeholder img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.collection-item:hover img,
-.collection-image-wrapper:hover img {
+.collection-item:hover .collection-placeholder img {
     transform: scale(1.03);
-}
-
-.collection-placeholder {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .collection-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,18 +71,35 @@
     z-index: 2;
     padding: 1rem;
     box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.15) 50%, transparent 100%);
 }
 
 .collection-overlay h2 {
     font-family: var(--font-main);
-    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-size: clamp(1.2rem, 4vw, 3.5rem);
     font-weight: 900;
     text-transform: uppercase;
     color: #FFFFFF;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    letter-spacing: -0.02em;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.05em;
     text-align: center;
     width: 100%;
     margin: 0;
     line-height: 1.1;
+}
+
+@media (max-width: 767px) {
+    .collections {
+        padding: 1.5rem var(--gutter);
+        gap: 1rem;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .collection-grid .collection-item .collection-image-wrapper {
+        aspect-ratio: 1/1;
+    }
 }
