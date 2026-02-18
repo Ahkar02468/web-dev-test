@@ -149,68 +149,59 @@ document.addEventListener("DOMContentLoaded", () => {
   // Only run if elements exist (in case we're on a page without the hero)
   if (heroTextWrapper && textClip) {
     const textElement = textClip.querySelector("text");
+    const windowWidth = window.innerWidth;
 
-    function updateAnimation() {
-      const scrolled = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const windowWidth = window.innerWidth;
+    // ONLY run animation on Desktop (> 768px)
+    if (windowWidth > 768) {
+      function updateAnimation() {
+        const scrolled = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
 
-      // Define the scroll range for the animation (e.g., 80% of viewport)
-      const animationRange = windowHeight * 0.8;
+        // Define the scroll range for the animation (e.g., 80% of viewport)
+        const animationRange = windowHeight * 0.8;
 
-      // Calculate progress (0 to 1)
-      let progress = scrolled / animationRange;
-      if (progress > 1) progress = 1;
-      if (progress < 0) progress = 0;
+        // Calculate progress (0 to 1)
+        let progress = scrolled / animationRange;
+        if (progress > 1) progress = 1;
+        if (progress < 0) progress = 0;
 
-      // Animation Parameters
-      // RESPONSIVE SIZE CALCULATION
-      // Desktop: Start big (300px)
-      // Mobile: Calculate based on screen width to ensure it fits or is appropriately large
-      // "PLAIMANAS" is approx 9 chars.
-      
-      let startSize;
-      let startSpacing;
-      
-      if (windowWidth > 768) {
-          startSize = 300; 
-          startSpacing = 20;
-      } else {
-          // Mobile: Width-based calculation
-          // Target width: 90% of screen
-          // Approx width of text = fontSize * 0.7 * 9chars
-          // fontSize = (windowWidth * 0.9) / (0.7 * 9)
-          // Simplified: windowWidth / 7
-          startSize = windowWidth / 6; // e.g., 375px -> ~62px
-          startSpacing = 2; // Tighter spacing on mobile
+        // Animation Parameters - Desktop only
+        const startSize = 300;
+        const startSpacing = 20;
+        const endSize = 60;
+        const endSpacing = 2;
+
+        // Y Position: Start close under header with small gap, then shrink into header
+        const headerHeight = 80;
+        const gapBelowHeader = 60;
+        const startY = headerHeight + gapBelowHeader + (startSize * 0.4);
+        const endY = headerHeight + (endSize * 0.4);
+
+        // Interpolate values
+        const currentSize = startSize - (startSize - endSize) * progress;
+        const currentSpacing = startSpacing - (startSpacing - endSpacing) * progress;
+        const currentY = startY - (startY - endY) * progress;
+
+        // Apply to SVG Text directly
+        textElement.setAttribute("x", windowWidth / 2);
+        textElement.setAttribute("y", currentY);
+        textElement.setAttribute("font-size", currentSize);
+        textElement.setAttribute("letter-spacing", currentSpacing);
       }
 
-      const endSize = windowWidth > 768 ? 60 : 40; // Smaller end size on mobile
-      const endSpacing = 2;
+      window.addEventListener("scroll", updateAnimation);
+      window.addEventListener("resize", updateAnimation);
 
-      // Y Position: Start close under header with small gap, then shrink into header
-      const headerHeight = windowWidth > 768 ? 80 : 60; // Header height
-      const gapBelowHeader = windowWidth > 768 ? 60 : 40; // Small space below header
-      const startY = headerHeight + gapBelowHeader + (startSize * 0.4); // Start just below header
-      const endY = headerHeight + (endSize * 0.4); // End positioned in header
-
-      // Interpolate values
-      const currentSize = startSize - (startSize - endSize) * progress;
-      const currentSpacing =
-        startSpacing - (startSpacing - endSpacing) * progress;
-      const currentY = startY - (startY - endY) * progress;
-
-      // Apply to SVG Text directly
-      textElement.setAttribute("x", windowWidth / 2); // Always center horizontally
-      textElement.setAttribute("y", currentY);
-      textElement.setAttribute("font-size", currentSize);
-      textElement.setAttribute("letter-spacing", currentSpacing);
+      // Initial call
+      updateAnimation();
+    } else {
+      // Mobile: Set static size (no animation)
+      const mobileFontSize = windowWidth / 6;
+      textElement.setAttribute("x", windowWidth / 2);
+      textElement.setAttribute("y", 150);
+      textElement.setAttribute("font-size", mobileFontSize);
+      textElement.setAttribute("letter-spacing", 2);
     }
-
-    window.addEventListener("scroll", updateAnimation);
-    window.addEventListener("resize", updateAnimation);
-
-    // Initial call
-    updateAnimation();
   }
 });
